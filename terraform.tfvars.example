@@ -1,10 +1,10 @@
 # Example Terraform variables file
 # Copy this file to terraform.tfvars and customize the values
 
-bucket_name = "my-unique-bucket-name-12345"
-environment = "dev"
+bucket_name = "my-unique-bucket-name-12345" # must be unique across AWS
+environment = "dev" # must be either dev, int or prod
 
-tags = {
+tags = { # optional
   "Project" = "cli-driven-test-workspace-1"
   "Owner"   = "terraform-test-lab"
 }
