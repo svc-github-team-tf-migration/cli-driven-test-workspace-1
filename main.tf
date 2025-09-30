@@ -6,13 +6,6 @@ terraform {
       version = "~> 5.0"
     }
   }
-
-  # cloud {
-  #   organization = "sujay-test-01"
-  #   workspaces {
-  #     name = "cli-driven-test-workspace-1"
-  #   }
-  # }
 }
 
 # Configure the AWS Provider
