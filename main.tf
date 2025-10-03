@@ -1,3 +1,4 @@
+
 terraform {
   required_version = ">= 1.0"
   required_providers {
@@ -6,12 +7,21 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  cloud {
+    organization = "sujay-test-01"
+    workspaces {
+      name = "cli-driven-test-workspace-1"
+    }
+  }
 }
+
 
 # Configure the AWS Provider
 provider "aws" {
   region = "ap-south-1"
 }
+
 
 # Create S3 bucket
 resource "aws_s3_bucket" "main" {
@@ -26,6 +36,7 @@ resource "aws_s3_bucket" "main" {
   )
 }
 
+
 # Configure S3 bucket versioning
 resource "aws_s3_bucket_versioning" "main" {
   bucket = aws_s3_bucket.main.id
@@ -33,6 +44,7 @@ resource "aws_s3_bucket_versioning" "main" {
     status = "Enabled"
   }
 }
+
 
 # Configure S3 bucket server-side encryption
 resource "aws_s3_bucket_server_side_encryption_configuration" "main" {
@@ -44,6 +56,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "main" {
     }
   }
 }
+
 
 # Block public access to the S3 bucket
 resource "aws_s3_bucket_public_access_block" "main" {
