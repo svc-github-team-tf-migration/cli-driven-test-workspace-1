@@ -1,0 +1,2 @@
+organization_name = "sujay-test-01" # Name of your Terraform Cloud organization under which the workspaces to migrated exists
+workspaces = ["vcs-driven-test-workspace-1"] # Name of your VCS-driven workspace(s) to be modularized.
